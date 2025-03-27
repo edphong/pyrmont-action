@@ -1,25 +1,87 @@
+<!-- src/views/AboutUsView.vue -->
 <template>
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-text">
-      <!-- "Connect with us" -->
       <h3 class="hero-subtitle">Connect with us</h3>
-
-      <!-- "About Us" -->
       <h1 class="hero-title">About Us</h1>
-
-      <!-- Body text -->
       <p class="hero-description">
         Descriptiam ligula scelerisque suscipit. Sed convallis at sem commodo dap
       </p>
     </div>
 
-    <!-- Right-side image -->
     <div class="hero-image-wrapper">
       <img
           :src="buildingImage"
           alt="Pyrmont building"
           class="hero-image"
       />
+    </div>
+  </section>
+
+  <!-- Objectives/Values Section -->
+  <section class="objectives-section">
+    <div class="objectives-content">
+      <!-- Headline -->
+      <h2 class="objectives-title">Our Objectives</h2>
+      <!-- Blue underline -->
+      <hr class="blue-underline" />
+
+      <!-- Subheadline -->
+      <h3 class="objectives-subtitle">Description of Values</h3>
+
+      <!-- Body text -->
+      <p class="objectives-description">
+        ExDescriptiam ligula scelerisque suscipit. Sed convallis at sem commodo
+        dapfdsfasdfsadfsdasfdsafdsadfsdasfdsafdsafsda fdsafdfsda
+      </p>
+
+      <!-- Icons and their captions in a row -->
+      <div class="objectives-grid">
+        <!-- 1) Democratic -->
+        <div class="objective-item">
+          <img
+              src="@/assets/democratic.png"
+              alt="Democratic"
+              class="objective-icon"
+          />
+          <h4>Democratic</h4>
+          <p>dfdsfdsajklfdsjfd saklfjdlks</p>
+        </div>
+
+        <!-- 2) Future Thinking -->
+        <div class="objective-item">
+          <img
+              src="@/assets/future-thinking.png"
+              alt="Future Thinking"
+              class="objective-icon"
+          />
+          <h4>Future Thinking</h4>
+          <p>dfdsfdsajklfdsjfd saklfjdlks</p>
+        </div>
+
+        <!-- 3) Determined -->
+        <div class="objective-item">
+          <img
+              src="@/assets/determined.png"
+              alt="Determined"
+              class="objective-icon"
+          />
+          <h4>Determined</h4>
+          <p>dfdsfdsajklfdsjfd saklfjdlks</p>
+        </div>
+
+        <!-- 4) Welcoming -->
+        <div class="objective-item">
+          <img
+              src="@/assets/welcoming.png"
+              alt="Welcoming"
+              class="objective-icon"
+          />
+          <h4>Welcoming</h4>
+          <p>dfdsfdsajklfdsjfd saklfjdlks</p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -29,11 +91,9 @@ import buildingImage from '@/assets/pyrmont-building.jpg'
 </script>
 
 <style scoped>
-/* If you haven’t already, load Inter via @import or a link in your main CSS or index.html:
-   e.g., @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-*/
-
-/* 1) Container spanning the full width */
+/* ----------------------------------------------
+   1) Hero Section
+----------------------------------------------- */
 .hero-section {
   display: flex;
   width: 100%;
@@ -43,7 +103,6 @@ import buildingImage from '@/assets/pyrmont-building.jpg'
   background-color: #DFF4FF;
 }
 
-/* 2) Left-side text container */
 .hero-text {
   flex: 0 0 50%;
   display: flex;
@@ -52,35 +111,31 @@ import buildingImage from '@/assets/pyrmont-building.jpg'
   padding-left: 2rem;
 }
 
-/* 2a) "Connect with us" - Inter Regular, size 28 */
 .hero-subtitle {
   color: #3498DB;
   margin-bottom: 0.5rem;
   font-family: 'Inter', sans-serif;
-  font-weight: 400;    /* regular */
+  font-weight: 400; /* regular */
   font-size: 28px;
 }
 
-/* 2b) "About Us" - bold, size 70, Inter */
 .hero-title {
   color: #4F76B1;
   margin-bottom: 1rem;
   font-family: 'Inter', sans-serif;
-  font-weight: 700;    /* bold */
+  font-weight: 700; /* bold */
   font-size: 70px;
 }
 
-/* 2c) Body text: size 20, Medium (500) Inter */
 .hero-description {
   color: #333;
   line-height: 1.4;
   max-width: 400px;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;    /* medium */
+  font-weight: 500; /* medium */
   font-size: 20px;
 }
 
-/* 3) Right-side image container */
 .hero-image-wrapper {
   flex: 0 0 50%;
   height: 100%;
@@ -88,11 +143,99 @@ import buildingImage from '@/assets/pyrmont-building.jpg'
   position: relative;
 }
 
-/* 4) Curved image on the right side */
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   clip-path: ellipse(100% 100% at 100% 50%);
+}
+
+/* ----------------------------------------------
+   2) Objectives/Values Section
+----------------------------------------------- */
+.objectives-section {
+  padding: 2rem 1rem;
+  background-color: #fff; /* or your preferred color */
+}
+
+.objectives-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+}
+
+/* Our Objectives: 48px, bold, Inter */
+.objectives-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Blue underline: #3498DB */
+.blue-underline {
+  width: 80px;
+  height: 5px;
+  background-color: #3498DB;
+  border: none;
+  margin: 0 0 1rem 0;
+}
+
+/* Description of Values: 28px, bold, Inter */
+.objectives-subtitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* Body text: 20px, regular, Inter */
+.objectives-description {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: #666;
+}
+
+/* The grid of icons/text */
+.objectives-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+.objective-item {
+  flex: 1 1 200px;
+  max-width: 220px;
+  text-align: center;
+}
+
+.objective-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.5rem;
+  object-fit: contain;
+}
+
+/* Democratic, Future Thinking, Determined, Welcoming text:
+   30px, semibold (600), Inter
+*/
+.objective-item h4 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* The text under each heading can remain smaller if you want:
+   adjust to your preference
+*/
+.objective-item p {
+  font-size: 14px;
+  line-height: 1.3;
+  color: #555;
 }
 </style>
