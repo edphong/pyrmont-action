@@ -66,8 +66,8 @@
 
 <style scoped>
 .objectives-section {
-  padding: 2rem 1rem;
-  background-color: #fff; /* or your preferred color */
+  padding: 2rem 7%;
+  background-color: #fff;
 }
 
 .objectives-content {
@@ -127,7 +127,6 @@
   object-fit: contain;
 }
 
-/* headings inside objective items (e.g. "Democratic") */
 .objective-item h4 {
   font-size: 28px;
   font-weight: 600;

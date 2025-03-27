@@ -38,8 +38,9 @@ import buildingImage from '@/assets/pyrmont-building.jpg'
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 2rem;
+  padding: 2rem 7%;
 }
+
 
 .hero-subtitle {
   color: #3498DB;

@@ -42,24 +42,19 @@
 .history-overlay {
   width: 100%;
   min-height: 600px;
-  background-color: rgba(0, 0, 0, 0.75); /* 60% black overlay */
-  padding: 3rem 2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 3rem 7%;
   box-sizing: border-box;
   position: relative;
 }
 
-/* Add padding-right so text doesn't go underneath the floating image */
 .history-content {
-  /* Remove or increase the max-width limit */
-  /* max-width: 800px;  <-- Remove or comment out this line */
-
   font-family: 'Inter', sans-serif;
   color: #fff;
 
-  /* Use viewport-based padding-right so text won't overlap the 45vw image */
-  padding-right: 55vw; /* or 45vw, 50vw, etc., depending on how much clearance you want */
-}
 
+  padding-right: 45vw;
+}
 
 .history-title {
   font-size: 48px;
@@ -100,6 +95,7 @@
 .history-floating-image img {
   width: 100%;
   height: auto;
+  object-fit: cover;
   display: block;
 }
 </style>
