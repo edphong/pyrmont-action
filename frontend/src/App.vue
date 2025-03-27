@@ -21,6 +21,10 @@ const route = useRoute()
       </div>
     </header>
 
+    <!--
+      If on the About page, we add a 'full-width' class (to remove the normal container constraints).
+      Otherwise, we just use normal .container for layout.
+    -->
     <main
         class="forum-content"
         :class="route.path === '/about' ? 'full-width' : 'container'"
@@ -54,11 +58,54 @@ const route = useRoute()
   </div>
 </template>
 
-<style scoped>
+<style>
+/*
+  We remove "scoped" so that our grid classes (.row, .col-md-*)
+  apply properly to elements in this template.
+*/
+
+/* Container mimic (like Bootstrap) */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* A full-width class for pages like /about that need the entire width */
+.full-width {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Basic row setup */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem; /* negative margins to offset column padding */
+}
+
+/* Column classes (default: full width for small screens) */
+.col-md-3,
+.col-md-9,
+.col-md-12 {
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* For screens >= 768px, apply the "md" column sizes */
+@media (min-width: 768px) {
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
 }
 
 /* Header styles */
@@ -93,16 +140,8 @@ const route = useRoute()
 /* Main content area */
 .forum-content {
   padding: 2rem 0;
-  
+  box-sizing: border-box;
 }
-
-.full-width {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
 
 /* Footer styles */
 .forum-footer {
@@ -114,7 +153,7 @@ const route = useRoute()
   color: #666;
 }
 
-/* Responsive tweaks */
+/* Responsive tweaks (additional) */
 @media (min-width: 768px) {
   .forum-title {
     text-align: left;

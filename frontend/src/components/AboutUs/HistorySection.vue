@@ -1,4 +1,3 @@
-<!-- src/components/HistorySection.vue -->
 <template>
   <section class="history-section">
     <div class="history-overlay">
@@ -6,21 +5,18 @@
         <h2 class="history-title">Our History</h2>
         <hr class="blue-underline" />
         <h3 class="history-subtitle">Title of Description</h3>
-
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida metus aliquam
           ligula scelerisque suscipit. Sed convallis at sem commodo dapibus...
         </p>
-
         <p>
           Pellentesque nisi enim, fringilla sed condimentum vitae, consectetur id ex. In luctus
           massa sodales enim convallis porta. Sed accumsan, ligula hendrerit imperdiet lobortis...
         </p>
       </div>
-
       <div class="history-floating-image">
         <img
-            src="../../assets/train.png"
+            src="@/assets/train.png"
             alt="Historic Train"
         />
       </div>
@@ -51,8 +47,6 @@
 .history-content {
   font-family: 'Inter', sans-serif;
   color: #fff;
-
-
   padding-right: 45vw;
 }
 
@@ -88,7 +82,7 @@
   right: 5%;
   transform: translateY(-50%);
   width: 45vw;
-  max-width: 90%;
+  max-width: 600px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
@@ -97,5 +91,21 @@
   height: auto;
   object-fit: cover;
   display: block;
+}
+
+@media (max-width: 767px) {
+  .history-overlay {
+    padding: 2rem;
+  }
+  .history-content {
+    padding-right: 0;
+  }
+  .history-floating-image {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    margin-top: 2rem;
+  }
 }
 </style>
