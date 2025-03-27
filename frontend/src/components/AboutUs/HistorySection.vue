@@ -1,9 +1,7 @@
 <!-- src/components/HistorySection.vue -->
 <template>
   <section class="history-section">
-    <!-- Semi-transparent overlay so the white text is readable -->
     <div class="history-overlay">
-      <!-- Left-side text content -->
       <div class="history-content">
         <h2 class="history-title">Our History</h2>
         <hr class="blue-underline" />
@@ -20,7 +18,6 @@
         </p>
       </div>
 
-      <!-- Floating image on the right -->
       <div class="history-floating-image">
         <img
             src="../../assets/train.png"
@@ -32,7 +29,6 @@
 </template>
 
 <script setup>
-// No special script logic unless you want to pass props or data
 </script>
 
 <style scoped>
@@ -40,29 +36,31 @@
   position: relative;
   width: 100%;
   min-height: 600px;
-  /* The black-and-white background image; tweak path as needed */
   background: url("@/assets/history-bg.png") center center / cover no-repeat;
-  /* If you want a forced grayscale filter, uncomment: */
-  /* filter: grayscale(100%); */
 }
 
 .history-overlay {
   width: 100%;
   min-height: 600px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75); /* 60% black overlay */
   padding: 3rem 2rem;
   box-sizing: border-box;
   position: relative;
 }
 
-/* Text content on the left */
+/* Add padding-right so text doesn't go underneath the floating image */
 .history-content {
-  max-width: 800px;
-  color: #fff; /* white text */
+  /* Remove or increase the max-width limit */
+  /* max-width: 800px;  <-- Remove or comment out this line */
+
   font-family: 'Inter', sans-serif;
+  color: #fff;
+
+  /* Use viewport-based padding-right so text won't overlap the 45vw image */
+  padding-right: 55vw; /* or 45vw, 50vw, etc., depending on how much clearance you want */
 }
 
-/* Headings and subheadings */
+
 .history-title {
   font-size: 48px;
   font-weight: 700;
@@ -83,20 +81,18 @@
   margin-bottom: 1rem;
 }
 
-/* Paragraph text, if needed: adjust size/line-height */
 .history-content p {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-/* Floating image on the right */
 .history-floating-image {
   position: absolute;
   top: 50%;
   right: 5%;
   transform: translateY(-50%);
-  width: 400px;
+  width: 45vw;
   max-width: 90%;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
