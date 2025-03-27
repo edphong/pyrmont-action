@@ -21,7 +21,10 @@ const route = useRoute()
       </div>
     </header>
 
-    <main class="container forum-content">
+    <main
+        class="forum-content"
+        :class="route.path === '/about' ? 'full-width' : 'container'"
+    >
       <div class="row">
         <!-- Only show the sidebar if NOT on /about -->
         <aside
@@ -90,7 +93,16 @@ const route = useRoute()
 /* Main content area */
 .forum-content {
   padding: 2rem 0;
+  
 }
+
+.full-width {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 
 /* Footer styles */
 .forum-footer {
