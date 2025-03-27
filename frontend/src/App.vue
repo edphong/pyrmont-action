@@ -1,9 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import ForumSidebar from './components/UserTable.vue'
-</script>
 
-<!-- Universal page for entire website (logo, navbar etc) -->
+// We'll use `useRoute()` to check the current path for conditionally rendering the sidebar.
+const route = useRoute()
+</script>
 
 <template>
   <div id="app">
@@ -11,17 +12,32 @@ import ForumSidebar from './components/UserTable.vue'
       <div class="container">
         <h1 class="forum-title">Pyrmont Action</h1>
         <nav class="forum-nav">
-          <!-- <RouterLink to="/" class="nav-link">Home</RouterLink> Handles links to other parts of website -->
+          <!-- Example home route (uncomment if you have a Home page) -->
+          <!-- <RouterLink to="/" class="nav-link">Home</RouterLink> -->
+
+          <!-- About page link -->
+          <RouterLink to="/about" class="nav-link">About Us</RouterLink>
         </nav>
       </div>
     </header>
 
     <main class="container forum-content">
       <div class="row">
-        <aside class="col-md-3">
+        <!-- Only show the sidebar if NOT on /about -->
+        <aside
+            v-if="route.path !== '/about'"
+            class="col-md-3"
+        >
           <ForumSidebar />
         </aside>
-        <section class="col-md-9">
+
+        <!--
+          If the sidebar is hidden, let the main content take full width (col-md-12).
+          If the sidebar is shown, main content is col-md-9.
+        -->
+        <section
+            :class="route.path === '/about' ? 'col-md-12' : 'col-md-9'"
+        >
           <RouterView />
         </section>
       </div>
@@ -36,7 +52,6 @@ import ForumSidebar from './components/UserTable.vue'
 </template>
 
 <style scoped>
-
 .container {
   width: 90%;
   max-width: 1200px;
