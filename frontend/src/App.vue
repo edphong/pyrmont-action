@@ -1,22 +1,26 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView} from 'vue-router'
 import ForumSidebar from './components/UserTable.vue'
+import TestView from './views/TestView.vue'
 </script>
 
 <!-- Universal page for entire website (logo, navbar etc) -->
 
 <template>
   <div id="app">
-    <header class="forum-header">
+
+    <router-view></router-view>
+
+    <!-- <header class="forum-header">
       <div class="container">
         <h1 class="forum-title">Pyrmont Action</h1>
         <nav class="forum-nav">
-          <!-- <RouterLink to="/" class="nav-link">Home</RouterLink> Handles links to other parts of website -->
+          
         </nav>
       </div>
-    </header>
+    </header> -->
 
-    <main class="container forum-content">
+    <!-- <main class="container forum-content">
       <div class="row">
         <aside class="col-md-3">
           <ForumSidebar />
@@ -25,13 +29,18 @@ import ForumSidebar from './components/UserTable.vue'
           <RouterView />
         </section>
       </div>
-    </main>
+      <button @click="activeComp = 'test-view'">test-view</button>
 
+      <div>
+        <router-view></router-view>
+      </div>
+    </main> -->
+<!-- 
     <footer class="forum-footer">
       <div class="container">
         <p>&copy; 2025 My Forum. All Rights Reserved.</p>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
