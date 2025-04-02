@@ -4,6 +4,13 @@
             <Slide v-for="(slide, index) in carouselSlides" :key="index">
                 <div v-show="currentSlide === index + 1" class="slide-info">
                     <img :src="getImagePath(slide)" alt="image" />
+                    <container class="overlay">
+                        <h1 class="overlay-header">Discover our new projects: <br> Blackwattle Bay Development!</h1>
+                        <p class="overlay-desc">Description here</p>
+                        <ul class="button">
+                            <li><router-link class="link" :to="{ name: ''}">LEARN MORE</router-link></li>
+                        </ul>
+                    </container>
                 </div>
             </Slide>
         </Carousel>
@@ -55,5 +62,53 @@ export default {
     min-width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(60%);
+}
+
+.carousel .overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-65%, -50%);
+    width: 60%;
+    z-index: 90;
+}
+
+.carousel .overlay-header {
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.carousel .overlay-desc {
+    color: #fff;
+}
+
+.carousel .button {
+    list-style: none;
+    padding: 0;
+}
+
+.carousel .button li {
+    margin-top: 20px;
+}
+
+.carousel .link {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #3498DB;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.carousel .link:hover {
+    background-color: #2980B9;
 }
 </style>

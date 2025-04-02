@@ -56,14 +56,14 @@ export default {
 
 .coreValue-contents {
     display: flex;
-    flex-wrap: wrap;  /* Allows blocks to wrap if they don't fit */
-    gap: 20px;  /* Adds space between blocks */
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
 }
 
 .coreValue {
     background-color: #fff;
-    width: 40%;  /* Adjusts width for 2 blocks per row */
+    width: 40%;
     padding: 20px 0px;
     display: flex;
     flex-direction: column;

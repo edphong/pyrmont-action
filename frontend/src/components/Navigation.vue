@@ -11,7 +11,7 @@
                 <li><router-link class="link" :to="{ name: ''}">Gallery</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">Contact</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">Join Us</router-link></li>
-                <li><router-link class="link" :to="{ name: ''}">Login</router-link></li>
+                <li><router-link class="login" :to="{ name: ''}">Login</router-link></li>
             </ul>
         </nav>
     </header>
@@ -39,7 +39,7 @@ nav {
     flex-direction: row;
     padding: 5px 0;
     transition: .5s ease all;
-    width: 95%;
+    width: 96%;
     margin: 0 auto;
 }
 
@@ -54,7 +54,7 @@ nav .link {
 
 nav li {
     text-transform: uppercase;
-    padding: 16px;
+    padding: 10px 16px;
     margin-left: 16px;
 }
 
@@ -68,6 +68,26 @@ nav .link {
 nav .link:hover {
     color: #3498DB;
     border-color: #3498DB;
+}
+
+nav .login {
+    display: inline-block;
+    color: #000;
+    border-color: #000;
+    border-style: solid;
+    border-width: thin;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+nav .login:hover {
+    background-color: #2980B9;
+    border-color: #2980B9;
+    color: #fff;
 }
 
 nav .logo {

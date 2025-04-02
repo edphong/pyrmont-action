@@ -22,19 +22,19 @@ export default {
 .explore-projects {
     padding: 90px 130px;
     display: flex;
-    flex-direction: column; /* Stacks name & description vertically */
+    flex-direction: column;
     margin-top: 5px;
 }
 
 .explore-projects-contents {
     display: flex;
-    flex-direction: row; /* Aligns text and image horizontally */
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
 .explore-projects-text {
-    width: 50%; /* Controls the width of the text section */
+    width: 50%;
 }
 
 .explore-projects-title{
@@ -64,9 +64,9 @@ export default {
 .explore-projects .link {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #3498DB; /* Blue background */
-    color: #fff; /* White text */
-    text-decoration: none; /* Remove underline */
+    background-color: #3498DB;
+    color: #fff;
+    text-decoration: none;
     border-radius: 25px;
     font-size: 16px;
     font-weight: bold;
@@ -75,7 +75,7 @@ export default {
 }
 
 .explore-projects .link:hover {
-    background-color: #2980B9; /* Darker blue on hover */
+    background-color: #2980B9;
 }
 
 .explore-projects img {

@@ -59,7 +59,7 @@ export default {
 
 .news-contents{
     display: flex;
-    flex-wrap: wrap;  /* Allows blocks to wrap if they don't fit */
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between
 }
@@ -81,36 +81,36 @@ export default {
 }
 
 .source-account {
-    display: flex; /* Enables horizontal layout */
-    align-items: center; /* Vertically aligns items */
-    gap: 10px; /* Adds spacing between image and text */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .source-account img {
-    width: 50px; /* Adjust as needed */
+    width: 50px;
     height: 50px;
-    border-radius: 50%; /* Makes it circular */
-    object-fit: cover; /* Ensures proper cropping */
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .account-info {
     display: flex;
-    flex-direction: column; /* Stacks name & description vertically */
+    flex-direction: column;
     margin-top: 5px;
 }
 
 .account-name {
     font-weight: bold;
-    display: block; /* Forces it onto a new line */
+    display: block;
     margin: 0;
     margin-top: 5px;
 }
 
 .account-desc {
-    display: block; /* Forces it onto a new line */
-    color: gray; /* Optional styling */
-    font-size: 14px; /* Adjust as needed */
-    margin-top: 2px; /* Space between name & description */
+    display: block;
+    color: gray;
+    font-size: 14px;
+    margin-top: 2px;
 }
 
 </style>
