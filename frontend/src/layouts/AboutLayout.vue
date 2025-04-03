@@ -19,7 +19,7 @@
 
 <style scoped>
 .about-layout {
-  font-family: 'Inter', sans-serif;
+  font-family: 'League Spartan', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

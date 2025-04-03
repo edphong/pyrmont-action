@@ -9,17 +9,27 @@ const router = createRouter({ // routing, handles links to other websites
       name: "Home",
       component: Home,
     },
-
+    // About route
     {
       path: '/about',
-      // Lazy-load the AboutLayout
       component: () => import('@/layouts/AboutLayout.vue'),
       children: [
         {
           path: '',
           name: 'about',
-          // Lazy-load the AboutUsView
           component: () => import('@/views/AboutUsView.vue')
+        }
+      ]
+    },
+    {
+      // Contact route
+      path: '/contact',
+      component: () => import('@/layouts/ContactLayout.vue'),
+      children: [
+        {
+          path: '',
+          name: 'contact',
+          component: () => import('@/views/ContactView.vue')
         }
       ]
     }

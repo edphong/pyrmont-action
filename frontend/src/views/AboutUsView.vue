@@ -1,5 +1,4 @@
 <template>
-  <!-- We simply stack all the sections below -->
   <HeroSection />
   <ObjectivesSection />
   <HistorySection />
@@ -16,5 +15,4 @@ import BecomeMemberSection from '@/components/About/BecomeMemberSection.vue'
 </script>
 
 <style scoped>
-/* The AboutUsView remains minimal. Any overarching styles are handled in the layout or sections. */
 </style>

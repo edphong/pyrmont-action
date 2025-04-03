@@ -9,7 +9,7 @@
                 <li><router-link class="link" :to="{ name: 'about' }">About Us</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">News</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">Gallery</router-link></li>
-                <li><router-link class="link" :to="{ name: ''}">Contact</router-link></li>
+                <li><router-link class="link" :to="{ name: 'contact' }">Contact</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">Join Us</router-link></li>
                 <li><router-link class="login" :to="{ name: ''}">Login</router-link></li>
             </ul>
