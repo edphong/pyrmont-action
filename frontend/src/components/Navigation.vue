@@ -6,7 +6,7 @@
             </div>
             <ul class="navigation">
                 <li><router-link class="link" :to="{ name: ''}">Projects</router-link></li>
-                <li><router-link class="link" :to="{ name: ''}">About Us</router-link></li>
+                <li><router-link class="link" :to="{ name: 'about' }">About Us</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">News</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">Gallery</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">Contact</router-link></li>

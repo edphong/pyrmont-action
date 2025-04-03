@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import ForumSidebar from './components/UserTable.vue'
 import Navigation from "./components/Navigation.vue"
 import Footer from "./components/Footer.vue"
 
@@ -12,33 +11,11 @@ const route = useRoute()
 
 <template>
   <div id="app">
-    <header class="forum-header">
-      <div class="container">
-        <h1 class="forum-title">Pyrmont Action</h1>
-        <nav class="forum-nav">
-          <!-- Example home route (uncomment if you have a Home page) -->
-          <!-- <RouterLink to="/" class="nav-link">Home</RouterLink> -->
+    <Navigation/>
 
-          <!-- About page link -->
-          <RouterLink to="/about" class="nav-link">About Us</RouterLink>
-          <!-- <RouterLink to="/" class="nav-link">Home</RouterLink> Handles links to other parts of website -->
-          <Navigation/>
-        </nav>
-      </div>
-    </header>
-
-    <main
-        class="forum-content"
-        :class="route.path === '/about' ? 'full-width' : 'container'"
-    >
+    <main class="forum-content full-width">
       <div class="row">
-        <!-- Only show sidebar if NOT on /about -->
-        <aside v-if="route.path !== '/about'" class="col-md-3">
-          <ForumSidebar />
-        </aside>
-
-        <!-- If sidebar is hidden => col-md-12; otherwise col-md-9 -->
-        <section :class="route.path === '/about' ? 'col-md-12' : 'col-md-9'">
+        <section class="col-md-12">
           <RouterView />
         </section>
       </div>
@@ -48,11 +25,11 @@ const route = useRoute()
     <footer class="forum-footer">
       <div class="container">
         <Footer/>
-        <!-- <p>&copy; 2025 My Forum. All Rights Reserved.</p> -->
       </div>
     </footer>
   </div>
 </template>
+
 
 
 <style>
