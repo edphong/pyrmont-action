@@ -17,8 +17,6 @@ const router = createRouter({ // routing, handles links to other websites
       name: 'Join Us',
       component: JoinUsView
     },
-
-
   ],
 })
 

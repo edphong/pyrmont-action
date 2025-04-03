@@ -86,7 +86,7 @@
                                 
                             </option>
                         </select>
-                        <input type="number" id="postcode" v-model=signUpData.postcode placeholder="Postcode" pattern="[0-9]{4}" required />
+                        <input type="text" id="postcode" v-model=signUpData.postcode placeholder="Postcode" pattern="[0-9]{4}" required />
                     </div>
                     <button id="submitBtn" type="submit">Sign Up</button>
 
