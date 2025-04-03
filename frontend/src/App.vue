@@ -1,9 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import ForumSidebar from './components/UserTable.vue'
-</script>
 
-<!-- Universal page for entire website (logo, navbar etc) -->
+// We'll use `useRoute()` to check the current path for conditionally rendering the sidebar.
+const route = useRoute()
+</script>
 
 <template>
   <div id="app">
@@ -11,17 +12,39 @@ import ForumSidebar from './components/UserTable.vue'
       <div class="container">
         <h1 class="forum-title">Pyrmont Action</h1>
         <nav class="forum-nav">
-          <!-- <RouterLink to="/" class="nav-link">Home</RouterLink> Handles links to other parts of website -->
+          <!-- Example home route (uncomment if you have a Home page) -->
+          <!-- <RouterLink to="/" class="nav-link">Home</RouterLink> -->
+
+          <!-- About page link -->
+          <RouterLink to="/about" class="nav-link">About Us</RouterLink>
         </nav>
       </div>
     </header>
 
-    <main class="container forum-content">
+    <!--
+      If on the About page, we add a 'full-width' class (to remove the normal container constraints).
+      Otherwise, we just use normal .container for layout.
+    -->
+    <main
+        class="forum-content"
+        :class="route.path === '/about' ? 'full-width' : 'container'"
+    >
       <div class="row">
-        <aside class="col-md-3">
+        <!-- Only show the sidebar if NOT on /about -->
+        <aside
+            v-if="route.path !== '/about'"
+            class="col-md-3"
+        >
           <ForumSidebar />
         </aside>
-        <section class="col-md-9">
+
+        <!--
+          If the sidebar is hidden, let the main content take full width (col-md-12).
+          If the sidebar is shown, main content is col-md-9.
+        -->
+        <section
+            :class="route.path === '/about' ? 'col-md-12' : 'col-md-9'"
+        >
           <RouterView />
         </section>
       </div>
@@ -35,12 +58,54 @@ import ForumSidebar from './components/UserTable.vue'
   </div>
 </template>
 
-<style scoped>
+<style>
+/*
+  We remove "scoped" so that our grid classes (.row, .col-md-*)
+  apply properly to elements in this template.
+*/
 
+/* Container mimic (like Bootstrap) */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* A full-width class for pages like /about that need the entire width */
+.full-width {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Basic row setup */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem; /* negative margins to offset column padding */
+}
+
+/* Column classes (default: full width for small screens) */
+.col-md-3,
+.col-md-9,
+.col-md-12 {
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* For screens >= 768px, apply the "md" column sizes */
+@media (min-width: 768px) {
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
 }
 
 /* Header styles */
@@ -75,6 +140,7 @@ import ForumSidebar from './components/UserTable.vue'
 /* Main content area */
 .forum-content {
   padding: 2rem 0;
+  box-sizing: border-box;
 }
 
 /* Footer styles */
@@ -87,7 +153,7 @@ import ForumSidebar from './components/UserTable.vue'
   color: #666;
 }
 
-/* Responsive tweaks */
+/* Responsive tweaks (additional) */
 @media (min-width: 768px) {
   .forum-title {
     text-align: left;
