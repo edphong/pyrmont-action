@@ -43,6 +43,18 @@ const router = createRouter({ // routing, handles links to other websites
             },
           ],
         },
+        // News Route
+        {
+          path: '/news',
+          component: () => import('@/layouts/NewsLayout.vue'),
+          children: [
+            {
+              path: '',
+              name: 'news',
+              component: () => import('@/views/NewsView.vue'),
+            }
+          ]
+        }
       ]
     }
   ]

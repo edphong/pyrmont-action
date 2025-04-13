@@ -7,7 +7,7 @@
             <ul class="navigation">
                 <li><router-link class="link" :to="{ name: ''}">Projects</router-link></li>
                 <li><router-link class="link" :to="{ name: 'about' }">About Us</router-link></li>
-                <li><router-link class="link" :to="{ name: ''}">News</router-link></li>
+                <li><router-link class="link" :to="{ name: 'news' }">News</router-link></li>
                 <li><router-link class="link" :to="{ name: 'Gallery' }">Gallery</router-link></li>
                 <li><router-link class="link" :to="{ name: 'contact' }">Contact</router-link></li>
                 <li><router-link class="link" :to="{ name: ''}">Join Us</router-link></li>
