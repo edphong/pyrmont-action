@@ -30,7 +30,19 @@ const router = createRouter({ // routing, handles links to other websites
           path: '',
           name: 'contact',
           component: () => import('@/views/ContactView.vue')
-        }
+        },
+          // Gallery Route
+        {
+          path: '/gallery',
+          component: () => import('@/layouts/GalleryLayout.vue'),
+          children: [
+            {
+              path: '',
+              name: 'Gallery',
+              component: () => import('@/views/GalleryView.vue'),
+            },
+          ],
+        },
       ]
     }
   ]

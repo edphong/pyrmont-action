@@ -15,7 +15,7 @@
     <div class="objectives-grid">
       <div class="objective-item">
         <img
-            src="@/assets/democratic.png"
+            src="@/assets/AboutUs/democratic.png"
             alt="Democratic"
             class="objective-icon"
         />
@@ -28,7 +28,7 @@
 
       <div class="objective-item">
         <img
-            src="@/assets/future-thinking.png"
+            src="@/assets/AboutUs/future-thinking.png"
             alt="Future Thinking"
             class="objective-icon"
         />
@@ -41,7 +41,7 @@
 
       <div class="objective-item">
         <img
-            src="@/assets/determined.png"
+            src="@/assets/AboutUs/determined.png"
             alt="Determined"
             class="objective-icon"
         />
@@ -54,7 +54,7 @@
 
       <div class="objective-item">
         <img
-            src="@/assets/welcoming.png"
+            src="@/assets/AboutUs/welcoming.png"
             alt="Welcoming"
             class="objective-icon"
         />
