@@ -28,7 +28,7 @@
         <h3 class="post-title">Post Title</h3>
         <p class="post-body">
           Body text for whatever you’d like to say. Add main takeaway points,
-          quotes, anecdotes, or even a very very short story.
+          quotes, anecdotes, or even a very short story.
         </p>
         <button class="read-more-button">Read More</button>
       </div>
@@ -42,17 +42,22 @@
 
 <style scoped>
 /* =========================
+   0. Optional Font Imports
+=========================
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Inter:wght@400;600&display=swap');
+*/
+
+/* =========================
    1. Main Container
-   ========================= */
+========================= */
 .latest-news-section {
   position: relative;
   display: flex;
-  /* Stretch columns to the same height */
   align-items: stretch;
   gap: 2rem;
   padding: 3rem 7%;
   background: linear-gradient(135deg, #f0faff 0%, #eef7fc 100%);
-  overflow: hidden;
+  overflow: hidden; /* contain swirl & wave shapes */
 }
 
 /* Swirl overlay */
@@ -60,11 +65,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-      circle at 30% 30%,
-      rgba(255, 255, 255, 0.7),
-      transparent 60%
-  );
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), transparent 60%);
   opacity: 0.5;
   animation: swirl 15s ease-in-out infinite alternate;
   z-index: 1;
@@ -95,18 +96,33 @@
 
 /* =========================
    2. Left: Large Image
-   ========================= */
+========================= */
 .news-image-large {
-  /* Let it take up 40% width & stretch to match the row’s height */
   flex: 0 0 40%;
   position: relative;
   overflow: hidden;
   border-radius: 8px;
   z-index: 3;
+
+  /* Slide-In from Left */
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadeInLeft 0.8s ease forwards;
+  /* Increase the delay or duration as needed */
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .news-image-large img {
-  /* Fill parent’s height & width */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -122,7 +138,7 @@
 
 /* =========================
    3. Right: Glass Card
-   ========================= */
+========================= */
 .news-content {
   flex: 1 1 60%;
   display: flex;
@@ -130,6 +146,23 @@
   gap: 1.5rem;
   position: relative;
   z-index: 3;
+
+  /* Slide-In from Right */
+  opacity: 0;
+  transform: translateX(30px);
+  animation: fadeInRight 0.8s ease 0.2s forwards;
+  /* The 0.2s adds a slight delay so it starts after the large image */
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .glass-card {
@@ -168,6 +201,23 @@
   max-width: 420px;
   border-radius: 8px;
   overflow: hidden;
+
+  /* Fade-In Up */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s ease 0.4s forwards;
+  /* Slight delay so it appears after the card slides in */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .news-image-small img {
@@ -221,7 +271,7 @@
 
 /* =========================
    4. Responsiveness
-   ========================= */
+========================= */
 @media (max-width: 992px) {
   .latest-news-section {
     gap: 1.5rem;

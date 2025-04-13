@@ -90,7 +90,7 @@
 /* ===============================
    0. (Optional) Font Imports
 ===============================
-   @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Inter:wght@400;600&display=swap');
 */
 
 /* ===============================
@@ -179,6 +179,36 @@
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
+
+  /* Fade-up Entrance Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Stagger the cards slightly */
+.news-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.news-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.news-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.news-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .glass-card {

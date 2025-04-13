@@ -54,6 +54,18 @@ const router = createRouter({ // routing, handles links to other websites
               component: () => import('@/views/NewsView.vue'),
             }
           ]
+        },
+          // Projects Route
+        {
+          path: '/projects',
+          component: () => import('@/layouts/ProjectsLayout.vue'),
+          children: [
+            {
+              path: '',
+              name: 'projects',
+              component: () => import('@/views/ProjectsView.vue'),
+            }
+          ]
         }
       ]
     }
