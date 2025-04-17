@@ -1,70 +1,96 @@
 <template>
-    <div class="news">
-        <h1 class="news-title">News</h1>
-        <div class="news-contents">
-            <div class="news-block">
-                <p class="review">"A terrific piece of praise"</p>
-                <div class="source-account">
-                    <img src="../../../assets/avatar1.png" alt="image"/>
-                    <div class="account-info">
-                        <p class="account-name">Name</p>
-                        <p class="account-desc">Description</p>
+    <div class="news-section">
+        <div class="background">
+            <img class="background-img" src="../../assets/gadigal_art.jpg" alt="image" />
+        </div>
+
+        <div class="news">
+            <h1 class="news-title">News</h1>
+            <div class="news-contents">
+                <div class="news-block">
+                    <p class="review">"A terrific piece of praise"</p>
+                    <div class="source-account">
+                        <img src="../../assets/avatar1.png" alt="image" />
+                        <div class="account-info">
+                            <p class="account-name">Name</p>
+                            <p class="account-desc">Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-block">
+                    <p class="review">"A fantastic bit of feedback"</p>
+                    <div class="source-account">
+                        <img src="../../assets/avatar2.png" alt="image" />
+                        <div class="account-info">
+                            <p class="account-name">Name</p>
+                            <p class="account-desc">Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-block">
+                    <p class="review">"A genuinely glowing review"</p>
+                    <div class="source-account">
+                        <img src="../../assets/avatar3.png" alt="image" />
+                        <div class="account-info">
+                            <p class="account-name">Name</p>
+                            <p class="account-desc">Description</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="news-block">
-                <p class="review">"A fantastic bit of feedback"</p>
-                <div class="source-account">
-                    <img src="../../../assets/avatar2.png" alt="image"/>
-                    <div class="account-info">
-                        <p class="account-name">Name</p>
-                        <p class="account-desc">Description</p>
-                    </div>
-                </div>
-            </div>
-            <div class="news-block">
-                <p class="review">"A genuinely glowing review"</p>
-                <div class="source-account">
-                    <img src="../../../assets/avatar3.png" alt="image"/>
-                    <div class="account-info">
-                        <p class="account-name">Name</p>
-                        <p class="account-desc">Description</p>
-                    </div>
-                </div>
-            </div>
-    </div>
+        </div>
     </div>
 </template>
 
 <script>
-export default {
-    
-}
 </script>
 
 <style lang="css">
+.news-section {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
 .news {
-    padding: 60px 130px;
-    background-color: #f0f0f0;
+    position: relative;
+    z-index: 1;
+    padding: 0 8%;
 }
 
-.news-title{
-    font-size: 40px;
-    color: #2c89c7;
-    margin: 0;
-    font-weight: bold;
-    padding-bottom: 30px;
+.news-title {
+    font-size: 48px;
+    color: #fff;
+    font-weight: 200;
     font-family: 'Inter', sans-serif;
+    margin-bottom: 30px;
 }
 
-.news-contents{
+.news-contents {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
+    gap: 30px;
 }
 
-.news-block{
+.news-block {
     background-color: #ffff;
     border-radius: 25px;
     width: 30%;
@@ -112,5 +138,4 @@ export default {
     font-size: 14px;
     margin-top: 2px;
 }
-
 </style>

@@ -80,9 +80,9 @@ nav li {
   transition: 0.25s ease;
 }
 
-.link:hover {
-  color: #2c74d8;
-  border-color: #2c74d8;
+nav .link:hover {
+    color: #EBBD6D;
+    border-color: #EBBD6D;
 }
 
 .login {
@@ -93,9 +93,26 @@ nav li {
   transition: 0.25s ease;
 }
 
-.login:hover {
-  background-color: #2c74d8;
-  color: #fff;
-  border-color: #2c74d8;
+nav .login:hover {
+    background-color: #EBBD6D;
+    border-color: #EBBD6D;
+    color: #fff;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    width: 300px;
+    transition: .5s ease all;
+}
+
+nav .navigation {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
 }
 </style>

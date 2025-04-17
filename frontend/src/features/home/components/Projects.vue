@@ -20,6 +20,7 @@ export default {
 
 <style lang="css">
 .explore-projects {
+    position: relative;
     padding: 90px 130px;
     display: flex;
     flex-direction: column;
@@ -64,7 +65,7 @@ export default {
 .explore-projects .link {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #3498DB;
+    background-color: #EBBD6D;
     color: #fff;
     text-decoration: none;
     border-radius: 25px;
@@ -75,7 +76,7 @@ export default {
 }
 
 .explore-projects .link:hover {
-    background-color: #2980B9;
+    background-color: #ebae45;
 }
 
 .explore-projects img {
