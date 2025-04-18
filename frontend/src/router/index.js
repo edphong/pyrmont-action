@@ -1,87 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from "../views/HomeView.vue";
+import { routes } from './routes'          // the array we just built
 
-const router = createRouter({ // routing, handles links to other websites 
+const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "Home",
-      component: Home,
-    },
-    // About route
-    {
-      path: '/about',
-      component: () => import('@/layouts/AboutLayout.vue'),
-      children: [
-        {
-          path: '',
-          name: 'about',
-          component: () => import('@/views/AboutUsView.vue')
-        }
-      ]
-    },
-    {
-      // Contact route
-      path: '/contact',
-      component: () => import('@/layouts/ContactLayout.vue'),
-      children: [
-        {
-          path: '',
-          name: 'contact',
-          component: () => import('@/views/ContactView.vue')
-        },
-          // Gallery Route
-        {
-          path: '/gallery',
-          component: () => import('@/layouts/GalleryLayout.vue'),
-          children: [
-            {
-              path: '',
-              name: 'Gallery',
-              component: () => import('@/views/GalleryView.vue'),
-            },
-          ],
-        },
-        // News Route
-        {
-          path: '/news',
-          component: () => import('@/layouts/NewsLayout.vue'),
-          children: [
-            {
-              path: '',
-              name: 'news',
-              component: () => import('@/views/NewsView.vue'),
-            }
-          ]
-        },
-          // Projects Route
-        {
-          path: '/projects',
-          component: () => import('@/layouts/ProjectsLayout.vue'),
-          children: [
-            {
-              path: '',
-              name: 'projects',
-              component: () => import('@/views/ProjectsView.vue'),
-            }
-          ]
-        },
-        {
-          path: '/admin',
-          component: () => import('@/layouts/AdminLayout.vue'),
-          meta: { requiresAdmin: true },
-          children: [
-            {
-              path: '',
-              name: 'admin',
-              component: () => import('@/views/AdminView.vue'),
-            },
-          ],
-        },
-      ]
-    }
-  ]
+  routes,
 })
 
 export default router

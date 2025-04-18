@@ -1,110 +1,99 @@
+<!-- src/components/Navigation.vue -->
 <template>
-    <header>
-        <nav>
-            <div class="logo">
-                <router-link :to="{ name: 'Home'}"><img src="../assets/logo.png" alt="image"></router-link>
-            </div>
-            <ul class="navigation">
-                <li><router-link class="link" :to="{ name: 'admin' }">Admin</router-link></li>
-                <li><router-link class="link" :to="{ name: 'projects'}">Projects</router-link></li>
-                <li><router-link class="link" :to="{ name: 'about' }">About Us</router-link></li>
-                <li><router-link class="link" :to="{ name: 'news' }">News</router-link></li>
-                <li><router-link class="link" :to="{ name: 'Gallery' }">Gallery</router-link></li>
-                <li><router-link class="link" :to="{ name: 'contact' }">Contact</router-link></li>
-                <li><router-link class="link" :to="{ name: ''}">Join Us</router-link></li>
-                <li><router-link class="login" :to="{ name: ''}">Login</router-link></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="site-header">
+    <nav>
+      <!-- Logo – click → home -->
+      <div class="logo">
+        <RouterLink :to="{ name: 'home' }">
+          <img src="@/assets/logo.png" alt="Pyrmont logo" />
+        </RouterLink>
+      </div>
+
+      <!-- Main navigation -->
+      <ul class="navigation">
+        <li><RouterLink class="link" :to="{ name: 'admin'    }">Admin</RouterLink></li>
+        <li><RouterLink class="link" :to="{ name: 'projects' }">Projects</RouterLink></li>
+        <li><RouterLink class="link" :to="{ name: 'about'    }">About&nbsp;Us</RouterLink></li>
+        <li><RouterLink class="link" :to="{ name: 'news'     }">News</RouterLink></li>
+        <li><RouterLink class="link" :to="{ name: 'gallery'  }">Gallery</RouterLink></li>
+        <li><RouterLink class="link" :to="{ name: 'contact'  }">Contact</RouterLink></li>
+
+        <!-- UI‑only items (no real routes yet) -->
+        <li><a class="link"  href="#">Join&nbsp;Us</a></li>
+        <li><a class="login" href="#">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
-<script>
-export default {
-    name: "navigation",
-}
+<script setup>
+/* purely presentational – no script logic needed */
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 header {
-    background-color: #ffff;
-    z-index: 99;
-    width: 100%;
-    position: fixed;
-    transition: .5s ease all;
-    color: #fff;
-    height: 85px;
+  background-color: #fff;
+  height: 85px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  transition: 0.5s ease all;
 }
 
 nav {
-    display: flex;
-    flex-direction: row;
-    padding: 5px 0;
-    transition: .5s ease all;
-    width: 96%;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  width: 96%;
+  margin: 0 auto;
+  padding: 5px 0;
 }
 
-nav ul,
-nav .link {
-    font-weight: 500;
-    color: #000000;
-    list-style: none;
-    text-decoration: none;
-    transform: translateY(15%);
+.navigation {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav li {
-    text-transform: uppercase;
-    padding: 10px 16px;
-    margin-left: 16px;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  margin-left: 16px;
 }
 
-nav .link {
-    font-size: 14px;
-    transition: .5s ease all;
-    padding-bottom: 4px;
-    border-bottom: 1px solid transparent;
+.link,
+.login {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s ease all;
 }
 
-nav .link:hover {
-    color: #3498DB;
-    border-color: #3498DB;
+.link:hover {
+  color: #3498db;
+  border-color: #3498db;
 }
 
-nav .login {
-    display: inline-block;
-    color: #000;
-    border-color: #000;
-    border-style: solid;
-    border-width: thin;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 14px;
-    text-align: center;
-    transition: background-color 0.3s;
+.login {
+  border: thin solid #000;
+  border-radius: 10px;
+  padding: 8px 15px;
 }
 
-nav .login:hover {
-    background-color: #2980B9;
-    border-color: #2980B9;
-    color: #fff;
+.login:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+  color: #fff;
 }
 
-nav .logo {
-    display: flex;
-    align-items: center;
-}
-
-nav .logo img {
-    width: 300px;
-    transition: .5s ease all;
-}
-
-nav .navigation {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: flex-end;
+.logo img {
+  width: 300px;
+  transition: 0.3s ease all;
 }
 </style>
