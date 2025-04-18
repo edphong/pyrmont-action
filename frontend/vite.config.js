@@ -4,6 +4,7 @@ import vue            from '@vitejs/plugin-vue'
 import vueJsx         from '@vitejs/plugin-vue-jsx'
 import vueDevTools    from 'vite-plugin-vue-devtools'
 import { fileURLToPath, URL } from 'node:url'
+import svgLoader from "vite-svg-loader";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
     vue(),
     vueJsx(),        // if you ever write <script setup lang="jsx">
     vueDevTools(),   // optional dev‑tools plugin
+    svgLoader(),
   ],
 
   resolve: {

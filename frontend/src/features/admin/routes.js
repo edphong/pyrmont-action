@@ -10,6 +10,16 @@ export const adminRoutes = [
                 name: 'admin',
                 component: () => import('./pages/AdminView.vue'),
             },
+            {
+                path: "users",
+                name: "admin-users",
+                component: () => import("./pages/UsersView.vue"),
+            },
+            {
+                path: "gallery",
+                name: "admin-gallery",
+                component: () => import("./pages/GalleryView.vue"),
+            },
         ],
     },
 ]
