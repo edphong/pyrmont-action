@@ -66,7 +66,19 @@ const router = createRouter({ // routing, handles links to other websites
               component: () => import('@/views/ProjectsView.vue'),
             }
           ]
-        }
+        },
+        {
+          path: '/admin',
+          component: () => import('@/layouts/AdminLayout.vue'),
+          meta: { requiresAdmin: true },
+          children: [
+            {
+              path: '',
+              name: 'admin',
+              component: () => import('@/views/AdminView.vue'),
+            },
+          ],
+        },
       ]
     }
   ]
