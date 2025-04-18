@@ -2,10 +2,18 @@
 <template>
   <div class="gallery-container">
     <GalleryHeader />
+
+    <!-- simple loader -->
+    <div v-if="loading" class="py-32 text-center text-gray-400">
+      Loading images…
+    </div>
+
     <GalleryGrid
+        v-else
         :images="galleryImages"
         @select-image="openLightbox"
     />
+
     <GalleryLightbox
         v-if="selectedImage"
         :image="selectedImage"
@@ -15,58 +23,36 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import GalleryHeader from '@/features/gallery/components/GalleryHeader.vue'
-import GalleryGrid from '@/features/gallery/components/GalleryCollage.vue'
+import { ref, onMounted } from 'vue'
+import { listImages } from '@/api.js'
+
+import GalleryHeader   from '@/features/gallery/components/GalleryHeader.vue'
+import GalleryGrid     from '@/features/gallery/components/GalleryCollage.vue'
 import GalleryLightbox from '@/features/gallery/components/GalleryLightbox.vue'
 
-const galleryImages = ref([
-  {
-    id: 1,
-    alt: 'Description for gallery image 1',
-    caption: 'Caption for Image 1'
-  },
-  {
-    id: 2,
-    alt: 'Description for gallery image 2',
-    caption: 'Caption for Image 2'
-  },
-  {
-    id: 3,
-    alt: 'Description for gallery image 3',
-    caption: 'Caption for Image 3'
-  },
-  {
-    id: 4,
-    alt: 'Description for gallery image 4',
-    caption: 'Caption for Image 4'
-  },
-  {
-    id: 5,
-    alt: 'Description for gallery image 5',
-    caption: 'Caption for Image 5'
-  },
-  {
-    id: 6,
-    alt: 'Description for gallery image 6',
-    caption: 'Caption for Image 6'
-  },
-  {
-    id: 7,
-    alt: 'Description for gallery image 7',
-    caption: 'Caption for Image 7'
-  }
-])
-
+/* ───── state ───── */
+const galleryImages = ref([])
 const selectedImage = ref(null)
+const loading       = ref(true)
 
-function openLightbox(image) {
-  selectedImage.value = image
+/* ───── fetch live images ───── */
+async function fetchImages () {
+  loading.value = true
+  const { data } = await listImages()          // GET /api/gallery
+  galleryImages.value = data.map((f, idx) => ({
+    id     : f.name,                           // use object name as id
+    src    : f.url,                            // public GCS link
+    alt    : f.name,
+    caption: `Image ${idx + 1}`
+  }))
+  loading.value = false
 }
 
-function closeLightbox() {
-  selectedImage.value = null
-}
+onMounted(fetchImages)
+
+/* ───── light‑box helpers ───── */
+function openLightbox (img) { selectedImage.value = img }
+function closeLightbox ()   { selectedImage.value = null }
 </script>
 
 <style scoped>
