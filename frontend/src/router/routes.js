@@ -4,7 +4,6 @@ import { contactRoutes }  from '~features/contact/routes'
 import { galleryRoutes }  from '~features/gallery/routes'
 import { newsRoutes }     from '~features/news/routes'
 import { projectsRoutes } from '~features/projects/routes'
-import { adminRoutes }    from '~features/admin/routes'
 
 export const routes = [
     ...homeRoutes,
@@ -13,5 +12,4 @@ export const routes = [
     ...galleryRoutes,
     ...newsRoutes,
     ...projectsRoutes,
-    ...adminRoutes,
 ]
