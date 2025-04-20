@@ -86,7 +86,7 @@ nav .link:hover {
 }
 
 .login {
-  border: 1px solid #2c74d8;
+  border: 1px solid #000;
   border-radius: 6px;
   padding: 6px 14px;
   font-weight: 600;

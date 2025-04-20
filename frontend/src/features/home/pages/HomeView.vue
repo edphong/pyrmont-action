@@ -28,7 +28,7 @@ import News from "../components/News.vue"
 import Projects from "../components/Projects.vue"
 
 export default {
-    name: "Home",
+    name: "home",
     components: { Carousel, Slide, CoreValues, News, Projects },
     setup() {
         const carouselSlides = ["carousel1", "carousel2", "carousel3", "carousel4"];
