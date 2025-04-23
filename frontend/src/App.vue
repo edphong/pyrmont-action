@@ -1,7 +1,6 @@
 <script setup>
 import { RouterLink, RouterView} from 'vue-router'
-import ForumSidebar from './components/UserTable.vue'
-import TestView from './views/TestView.vue'
+
 </script>
 
 <!-- Universal page for entire website (logo, navbar etc) -->

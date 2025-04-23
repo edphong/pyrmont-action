@@ -1,17 +1,18 @@
 <script setup>
-    import {ref} from 'vue'
+    import {handleError, ref} from 'vue'
+    import authenticationAPI from '../../feature/JoinUs/services/joinUsAuthService'
 
 
-    
-    const areaOfInterestChosen = ref('Default')
-    const areaOfInterestOptions = ref([
-        {text: 'Areas of Interest', value: "Default", placeholder: true},
-        {text: 'Projects', value: "Projects", placeholder: false},
-        {text: 'Culture', value: "Culture", placeholder: false},
-        {text: 'Activities', value: "Activities", placeholder: false}
+
+    //Area of Interest Options
+    // const areaOfInterestChosen = ref('Default')
+    // const areaOfInterestOptions = ref([
+    //     {text: 'Areas of Interest', value: "Default", placeholder: true},
+    //     {text: 'Projects', value: "Projects", placeholder: false},
+    //     {text: 'Culture', value: "Culture", placeholder: false},
+    //     {text: 'Activities', value: "Activities", placeholder: false}
         
-    ])
-
+    // ])
 
     const stateChosen = ref('Default')
     const stateOptions = ref([
@@ -25,7 +26,6 @@
         {text: 'TAS', value: "TAS", placeholder: false}
 
     ])
-
    
 
 
@@ -34,17 +34,29 @@
         password: '',
         firstName: '',
         lastName: '',
-        mobilePhone: '',
-        areaOfInterest: areaOfInterestChosen.value,
+        mobilePhone: null,
+        areaOfInterest: '',
         streetName: '',
         city: '',
-        state: stateChosen.value,
-        postcode: ''
+        state: '',
+        postcode: null
     }
 
-    const handleSubmit = () => {
-        // alert('hi')
-        alert()
+    const signUpErrors = ref(false);
+
+
+  
+    const handleSubmit = async () => {
+        try{
+            signUpData.state = stateChosen.value;
+            const response = await authenticationAPI.joinus(signUpData);
+            
+
+        }
+        catch(error){
+
+        }
+     
     }
 
 
@@ -68,22 +80,18 @@
                         <input type="text" id="first-name" v-model=signUpData.firstName placeholder="First Name" required />
                         <input type="text" id="last-name" v-model=signUpData.lastName placeholder="Last Name" required />
                         <input type="tel" id="mobile-phone" v-model=signUpData.mobilePhone placeholder="Mobile Phone" pattern="[0-9]{10}" required />
-                        <select v-model="areaOfInterestChosen" id="area-of-interest-dropdown">
-                            <option v-for="item in areaOfInterestOptions" :value="item.value" :hidden=item.placeholder :disabled=item.placeholder>
-                                {{ item.text }}
-                                
-                            </option>
-                        </select>
+                        <input type="text" v-model="signUpData.areaOfInterest" id="areaOfInterestTextArea" placeholder="Area of Interest" required>
                     </div>
 
                     <h2>Address Details</h2>
                     <div class="address-details-section">
                         <input type="text" id="street-name" v-model=signUpData.streetName placeholder="Street Name" required />
                         <input type="text" id="city" v-model=signUpData.city placeholder="City" required />
-                        <select v-model="stateChosen" id="state" >
-                            <option v-for="state in stateOptions" :value="state.value" :disabled=state.placeholder :hidden=state.placeholder>
+         
+
+                        <select v-model="stateChosen" id="state" required>
+                            <option v-for="state in stateOptions" :value="state.value" :disabled=state.placeholder :hidden=state.placeholder :selected=state.placeholder>
                                 {{ state.text }}
-                                
                             </option>
                         </select>
                         <input type="text" id="postcode" v-model=signUpData.postcode placeholder="Postcode" pattern="[0-9]{4}" required />
@@ -135,6 +143,8 @@
         padding-left: 0.5rem;
     }
 
+
+
     h2{
       color: #3498DB;
       font-size: large;
@@ -148,9 +158,6 @@
     hr{
         border-top: 2px solid black;
         margin-bottom: 20px;
-
-        
-
     }
 
     input, select{
@@ -159,8 +166,6 @@
         background-color: #F8F8F8;
         border-color: #cbc8c8;
         height: 35px
-
-
     }
 
     h1{
@@ -202,11 +207,15 @@
         grid-column: 1/3;
     }
    
-    #postcode, #area-of-interest-dropdown{
+    #postcode, #areaOfInterestTextArea{
         grid-row: 3;
         grid-column: 1/3;
     }
+
     
+    #areaOfInterestTextArea{
+        resize: none;
+    }
 
     #submitBtn{
         position: relative;

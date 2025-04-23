@@ -1,21 +1,24 @@
-<script>
-    export default{
-        data(){
-            return{
-                loginInput: {
-                    email: '',
-                    password: ''
-                }
-            }
+<script setup>
+import { ref } from 'vue';
+import authenticationAPI from '../../feature/JoinUs/services/joinUsAuthService'
+    const loginInput = {
+        email: '',
+        password: ''
+    }
+    const loginErrors = ref(false);
 
-        },
-
-        methods: {
-            handleSubmit() {
-                
-            }
+    const handleSubmit = async() => {
+        try{
+            const response = await authenticationAPI.login(loginInput).catch("hello");
+            loginErrors.value = response.ok ? false : true;
+  
+        }
+        catch(error){
+            loginErrors.value = true;
         }
     }
+
+    
 
 </script>
 
@@ -35,6 +38,7 @@
                     <span id="enter-details-description">Please enter your details</span>
                 </div>
                 <form class="login-entries" @submit.prevent="handleSubmit">
+    
                     <div class="email-section">
                         <label for="email">Email</label>
                         <input type="email" id="email" v-model="loginInput.email" required />
@@ -43,7 +47,12 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" v-model="loginInput.password" required />
                     </div>
-                    <a href="link" id="forgot-password-link"> Forgot Password </a>
+                    <div class="error-and-forgot-password-section">
+                        
+                        <span v-if="loginErrors" id="error-message">Incorrect Username and Password</span>
+                        <a href="link" id="forgot-password-link"> Forgot Password </a>
+                    </div>
+                    
                     <button id="submitBtn" type="submit">Sign In</button>
 
                     <div class="signup-container">
@@ -102,8 +111,6 @@
         flex-direction: column;
         font-size: small;
         font-weight: 300;
-
-    
     }
 
     #logo{
@@ -146,7 +153,7 @@
         font-family: 'Manrope', sans-serif;
         color: #41A6F5;
         font-weight: 550;
-        
+        grid-column: 2;
     }
 
     #password, #email{
@@ -183,6 +190,23 @@
         font-family: 'Manrope', sans-serif;
         font-weight: bold;
     }
+
+    .error-and-forgot-password-section{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5px;
+        
+    }
+
+
+    #error-message{
+        color: red;
+        text-align: left;
+        font-size: small;
+        grid-column: 1;
+
+    }
+
 
 
 
