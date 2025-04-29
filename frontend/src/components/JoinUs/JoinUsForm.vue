@@ -3,17 +3,6 @@
     import authenticationAPI from '../../feature/JoinUs/services/joinUsAuthService'
 
 
-
-    //Area of Interest Options
-    // const areaOfInterestChosen = ref('Default')
-    // const areaOfInterestOptions = ref([
-    //     {text: 'Areas of Interest', value: "Default", placeholder: true},
-    //     {text: 'Projects', value: "Projects", placeholder: false},
-    //     {text: 'Culture', value: "Culture", placeholder: false},
-    //     {text: 'Activities', value: "Activities", placeholder: false}
-        
-    // ])
-
     const stateChosen = ref('Default')
     const stateOptions = ref([
         {text: 'State', value: "Default", placeholder: true},
@@ -119,10 +108,8 @@
 
     .signup-form-container{
         display: inline-block;
-        position:absolute;
-        top: 100px;
+        vertical-align: middle;
 
- 
         background-color: white;
         width: 50vw;
         border-radius: 5px;

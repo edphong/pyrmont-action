@@ -30,36 +30,36 @@ import loginAuthenticationService from '../services/loginAuthServices'
         <div class="login-form">
          
             <div class="login-form-left-side">
+                <div class="left-side-content">
+                    <div class="headings">
 
-                <div class="headings">
-
-                    <span id="welcome-heading">Welcome back</span>
-                    <span id="enter-details-description">Please enter your details</span>
-                </div>
-                <form class="login-entries" @submit.prevent="handleSubmit">
-    
-                    <div class="email-section">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" v-model="loginInput.email" required />
+                        <span id="welcome-heading">Welcome back</span>
+                        <span id="enter-details-description">Please enter your details</span>
                     </div>
-                    <div class="password-section">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" v-model="loginInput.password" required />
-                    </div>
-                    <div class="error-and-forgot-password-section">
+                    <form class="login-entries" @submit.prevent="handleSubmit">
+        
+                        <div class="email-section">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" v-model="loginInput.email" required />
+                        </div>
+                        <div class="password-section">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" v-model="loginInput.password" required />
+                        </div>
+                        <div class="error-and-forgot-password-section">
+                            
+                            <span v-if="loginErrors" id="error-message">Incorrect Username and Password</span>
+                            <a href="link" id="forgot-password-link"> Forgot Password </a>
+                        </div>
                         
-                        <span v-if="loginErrors" id="error-message">Incorrect Username and Password</span>
-                        <a href="link" id="forgot-password-link"> Forgot Password </a>
-                    </div>
-                    
-                    <button id="submitBtn" type="submit">Sign In</button>
+                        <button id="submitBtn" type="submit">Sign In</button>
 
-                    <div class="signup-container">
-                        <span id="signup-text"> Don't have an account &nbsp</span>
-                        <a id="signup-link" href="/joinus"> Sign Up</a>
-                    </div>
-                </form>
-  
+                        <div class="signup-container">
+                            <span id="signup-text"> Don't have an account &nbsp</span>
+                            <a id="signup-link" href="/joinus"> Sign Up</a>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="login-right-side">
 
@@ -75,22 +75,24 @@ import loginAuthenticationService from '../services/loginAuthServices'
         display:inline-block;
         column-count: 2;
         width: 100vw;
-        height: 80vh;
+        height: 87vh;
         column-gap: 0px;
         font-family: 'Inter', sans-serif;
+        padding-bottom: 0px;
         
     }
 
     .login-entries{
         position: relative;
         margin:0rem 5rem 0rem 5rem;
-        top: 20vh;
+        padding-top: 5vh;
     }
 
     .login-right-side{
         background-image: url("../../../assets/boat.jpeg");
-        height: 100vh;
+        height: 87vh;
         margin: 0px;
+        width: 50vw;
         align-items: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -111,17 +113,10 @@ import loginAuthenticationService from '../services/loginAuthServices'
         font-size: small;
         font-weight: 300;
     }
-
-    #logo{
-        display: block;
-        position:relative;
-        top: 40px;
-        left: 30px;
-        width: auto;
-        height: auto;
-        max-width: 230px;
-        max-height:80px;
+    .login-form-left-side{
+        padding-top: 10vh;
     }
+
 
     #signup-text{
         font-weight: 500;
@@ -138,7 +133,6 @@ import loginAuthenticationService from '../services/loginAuthServices'
 
     .headings{
         position: relative;
-        top: 15vh;
         display: flex;
         flex-direction: column;
         padding: 2rem 5rem 0rem 5rem;
