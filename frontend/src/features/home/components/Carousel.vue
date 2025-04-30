@@ -88,7 +88,7 @@ export default {
     justify-content: flex-end;
 }
 
-.navigate i {
+i {
     cursor: pointer;
     display: flex !important;
     align-items: center;
@@ -101,7 +101,7 @@ export default {
     opacity: 30%
 }
 
-.navigate i:hover {
+i:hover {
     opacity: 100%;
 }
 

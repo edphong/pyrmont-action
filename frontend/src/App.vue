@@ -22,7 +22,11 @@ const route = useRoute()
     </main>
 
 
-    <Footer/>
+    <footer class="forum-footer">
+      <div class="container">
+        <Footer/>
+      </div>
+    </footer>
   </div>
 </template>
 

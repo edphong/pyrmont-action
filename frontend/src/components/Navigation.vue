@@ -80,39 +80,22 @@ nav li {
   transition: 0.25s ease;
 }
 
-nav .link:hover {
-    color: #EBBD6D;
-    border-color: #EBBD6D;
+.link:hover {
+  color: #2c74d8;
+  border-color: #2c74d8;
 }
 
 .login {
-  border: 1px solid #000;
+  border: 1px solid #2c74d8;
   border-radius: 6px;
   padding: 6px 14px;
   font-weight: 600;
   transition: 0.25s ease;
 }
 
-nav .login:hover {
-    background-color: #EBBD6D;
-    border-color: #EBBD6D;
-    color: #fff;
-}
-
-nav .logo {
-    display: flex;
-    align-items: center;
-}
-
-nav .logo img {
-    width: 300px;
-    transition: .5s ease all;
-}
-
-nav .navigation {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: flex-end;
+.login:hover {
+  background-color: #2c74d8;
+  color: #fff;
+  border-color: #2c74d8;
 }
 </style>
