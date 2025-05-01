@@ -1,8 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
+const newsModel = require('./news/newsModel');
+const newsRoutes = require('./news/newsRoutes');
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
@@ -36,6 +39,11 @@ app.use("", function(req, res, next) {
   next();
 },
 userRouter);
+
+
+newsModel(db);
+
+app.use('/api/news', newsRoutes(db));
 
 // // GET all users
 // app.get('/api/users', (req, res) => {
